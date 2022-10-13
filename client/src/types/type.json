@@ -1,0 +1,11 @@
+
+{
+    "_id": "63403507ca6c0638e6f0aff6",
+    "title": "aloha",
+    "image": "poza.jpg",
+    "content": "aloha scubi doo",
+    "createdAt": { "$date": { "$numberLong": "1665152263700" } },
+    "updatedAt": { "$date": { "$numberLong": "1665152263700" } },
+    "__v": { "$numberInt": "0" }
+  }
+  
