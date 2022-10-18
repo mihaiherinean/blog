@@ -36,17 +36,6 @@ function Navigation({ setOpened }: INavigationProp) {
           />
         )}
       </NavLink>
-      <NavLink to="/recente" className={classes.navlink} onClick={handleClick}>
-        {({ isActive }) => (
-          <MantineNavLink
-            label="Recente"
-            active={isActive}
-            color="#339AFF"
-            variant="subtle"
-            icon={<MdOutlineWatchLater size={20} />}
-          />
-        )}
-      </NavLink>
       <NavLink
         to="/categorie/mancare"
         className={classes.navlink}

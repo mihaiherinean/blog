@@ -1,10 +1,11 @@
 import { Button, createStyles, Group, Modal } from '@mantine/core';
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { useBlogQuery } from '../../hooks/useBlogQuery';
 import DeleteBlog from './components/DeleteBlog';
 import UpdateBlog from './components/UpdateBlog';
-
+import { addImportantBlog } from '../../store/blogSlice';
 
 const useStyles = createStyles((theme)=>({
   container: {
@@ -24,7 +25,8 @@ const useStyles = createStyles((theme)=>({
   image:{
     height:'100%',
     width: '100%', 
-    objectFit: 'cover'
+    maxHeight: '600px',
+    objectFit: 'contain'
   
   },
   content:{
@@ -42,6 +44,8 @@ function Blog() {
   const {classes} = useStyles();
   const {data: blog, isError, isLoading} = useBlogQuery(id || '');
   const [opened, setOpened] = useState(false);
+  const dispatch = useDispatch();
+
   if (isLoading || !blog) {
     return <p>Loading...</p>
   }
@@ -55,6 +59,10 @@ function Blog() {
   }
 
   const date = new Date(blog.createdAt);
+
+  const handleAddImportant = (e: React.MouseEvent<HTMLElement>) => {
+    dispatch(addImportantBlog(blog));
+  };
   
   
   return (
@@ -69,8 +77,9 @@ function Blog() {
       </Modal>
 
         <Group>
-        <Button onClick={() => setOpened(true)}>Update Blog</Button>
+        <Button onClick={() => setOpened(true)}>Editeaza blog</Button>
         <DeleteBlog blog={blog} />
+        <Button color="orange" onClick={handleAddImportant}>De actualitate</Button>
         </Group>
       <h1 className={classes.title}>{blog.title}</h1>
       <p style={{fontWeight:'bold'}}>{date.toLocaleString('ro-RO',{ day:'numeric', year:'numeric', month:'long' })}</p>

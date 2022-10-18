@@ -4,13 +4,11 @@ import Layout from './components/Layout'
 import Blog from './pages/Blog/Blog'
 import Blogs from './pages/Blogs/Blogs'
 import Home from './pages/Home/Home'
-import Recente from './pages/Recente/Recente'
 function AppRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Layout/>}>
         <Route index element={<Home/>}/>
-        <Route path='/recente' element={<Recente/>}/>
         <Route path='/categorie/:category' element={<Blogs/>}/>
         <Route path='/:id' element={<Blog/>}/>
         </Route>

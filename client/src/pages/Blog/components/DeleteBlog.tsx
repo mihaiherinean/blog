@@ -19,7 +19,7 @@ function DeleteBlog({blog}:IDeleteBlogProp) {
   }
   return (
     <form onSubmit={handleSubmit}>
-      <Button type="submit" loading={isLoading}>Delete Blog</Button>
+      <Button type="submit" loading={isLoading}>Sterge blog</Button>
     </form>
   )
 }

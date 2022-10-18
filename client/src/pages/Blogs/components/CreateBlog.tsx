@@ -19,17 +19,15 @@ function CreateBlog({category}:ICreateBlogProp) {
             short_description: '',
         },
         validate:{
-            title: (value) => (value.length < 10 || value.length > 50 ? 'Titlu trebuie sa aiba intre 10-50 caractere' : null),
+            title: (value) => (value.length < 10 || value.length > 80 ? 'Titlu trebuie sa aiba intre 10-80 caractere' : null),
             content: (value) => (value.length < 15) ? 'Continutul trebuie sa fie mai mare de 15 caractere' : null,
-            short_description: (value) => (value.length < 10 || value.length > 100) ? 'Descrierea trebuie sa aiba intre 10-100 de caractere': null,
+            short_description: (value) => (value.length < 10 || value.length > 150) ? 'Descrierea trebuie sa aiba intre 10-150 de caractere': null,
             image: (value) => (value.length < 1) ? 'Introdu un URL pentru imagine' : null,
         }
     })
 
     const handleSubmit = async (values:ICreateBlog) => {
         const { title, image, content, category, short_description } = values;
-        console.log(category);
-        console.log(values);
         createBlog(
           {
             title, image, content, short_description, category
@@ -37,6 +35,8 @@ function CreateBlog({category}:ICreateBlogProp) {
         );
 
       };
+
+
 
   return (
     <>

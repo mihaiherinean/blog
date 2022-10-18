@@ -19,6 +19,11 @@ export const getBlogs = async(category: string) => {
     return data.filter((item) => item.category === category);
 }
 
+export const getAllBlogs = async() => {
+    const {data} = await axiosInstance.get<IBlog[]>('/blogs')
+    return data;
+}
+
 export const postBlog = async(req: ICreateBlog) => {
    const {data} = await axiosInstance.post('/blogs',req);
    return data;

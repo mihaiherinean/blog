@@ -70,7 +70,7 @@ function BlogCard({blog}:IBlogCardProp) {
             </div>
               <p className={classes.content}>{blog.short_description}</p>
               <div className={classes.image}>
-               <img src={blog.image} style={{width: '100%',height:'100%', objectFit:'contain'}}/>
+               <img src={blog.image} style={{width: '100%', maxHeight: "250px", height:'100%', objectFit:'cover'}}/>
                </div>
         </div>
     </Link>
